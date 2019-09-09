@@ -44,9 +44,13 @@ class App extends React.Component {
       })
   )
 
+  //This is our new function function for removing stuff
+  //It will remove an entry if we pass its index
   removeEntry = (entryIndex) => this.setState(
       (state) => ({
           entries: [
+              //Slice will create a new list from the a given index either to the end
+              //Or until one index before the given index
               ...state.entries.slice(0, entryIndex),
               ...state.entries.slice(entryIndex+1)
           ]
@@ -55,7 +59,7 @@ class App extends React.Component {
 
   render() {
       const {entries} = this.state
-
+      //Added remove entry to screen props
     return (
       <AppNavigator
         navigation={this.props.navigation}
